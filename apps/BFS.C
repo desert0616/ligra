@@ -39,8 +39,10 @@ struct BFS_F {
 
 template <class vertex>
 void Compute(graph<vertex>& GA, commandLine P) {
-  long start = P.getOptionLongValue("-r",0);
+  // long start = P.getOptionLongValue("-r",0);
   long n = GA.n;
+  long start = rand() % n;
+  printf("start node: %ld\n", start);
   //creates Parents array, initialized to all -1, except for start
   uintE* Parents = newA(uintE,n);
   parallel_for(long i=0;i<n;i++) Parents[i] = UINT_E_MAX;
